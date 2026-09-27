@@ -1,1 +1,1 @@
-Koktem-3 Premium v3: verified service-to-specialist mapping, expanded official services, 2GIS primary map, RU/KZ, no invented prices.
+Premium v4: all specialists/team members from official Koktem-3 dentistry and medical center specialists pages added; booking buttons only for specialties with a clear service match. Prices remain “Уточнить”.
