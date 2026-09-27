@@ -1,1 +1,1 @@
-Updated premium visual v2 with separate color themes, improved typography, and map/location section.
+Koktem-3 Premium v3: verified service-to-specialist mapping, expanded official services, 2GIS primary map, RU/KZ, no invented prices.
