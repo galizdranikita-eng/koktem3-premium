@@ -1,1 +1,1 @@
-Premium v4: all specialists/team members from official Koktem-3 dentistry and medical center specialists pages added; booking buttons only for specialties with a clear service match. Prices remain “Уточнить”.
+Koktem-3 Premium v5: specialist tabs and filtered doctor directory for both Dentistry and Physiopolyclinic; team is collapsed separately.
