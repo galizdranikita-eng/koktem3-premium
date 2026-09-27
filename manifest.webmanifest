@@ -1,10 +1,10 @@
 {
-  "name": "Коктем-3 Premium IMED Style",
+  "name": "Koktem-3 Premium Visual v2",
   "short_name": "Koktem-3",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f5f8fb",
-  "theme_color": "#113b63",
+  "theme_color": "#0d8f88",
   "icons": [
     {
       "src": "icon-192.png",
