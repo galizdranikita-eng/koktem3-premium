@@ -1,1 +1,1 @@
-Koktem-3 Premium v5: specialist tabs and filtered doctor directory for both Dentistry and Physiopolyclinic; team is collapsed separately.
+Premium v7: hero portraits removed. Official Koktem-3 building photos are used for dentistry (Täuelsizdik 87) and medical center (Letunova 79).
