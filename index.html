@@ -2,120 +2,134 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F8F6F1">
-<title>Коктем‑3 — Premium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#113b63">
+<title>Коктем-3 Premium — IMED style</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
-  --bg:#f8f6f1; --paper:#ffffff; --ink:#17211f; --muted:#76807d; --line:#e8e4da;
-  --accent:#0f5f53; --accent2:#1f8575; --sand:#b99a62; --sand-soft:#f3eee4;
-  --shadow:0 18px 45px rgba(29,42,38,.08); --shadow2:0 8px 24px rgba(29,42,38,.06);
+  --bg:#f4f7fb; --paper:#ffffff; --ink:#17324d; --muted:#6f8396; --line:#dbe5f0;
+  --brand:#113b63; --brand2:#1f6fa5; --accent:#1aa3a8; --soft:#edf4fa; --gold:#c6a979;
+  --shadow:0 18px 45px rgba(18,42,66,.09); --shadow2:0 8px 20px rgba(18,42,66,.06);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-button,input,select,textarea{font:inherit} button{cursor:pointer}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
 body{display:flex;justify-content:center}
-#app{width:100%;min-height:100dvh}
-.shell{max-width:1180px;margin:0 auto}
-.topbar{position:sticky;top:0;z-index:80;background:rgba(248,246,241,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(232,228,218,.8)}
-.topbar .shell{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 22px}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+#app{width:100%;min-height:100vh}
+.shell{width:min(1200px,100%);margin:0 auto}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(219,229,240,.9)}
+.topbar .shell{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;gap:18px}
 .brand{display:flex;align-items:center;gap:12px}
-.mark{width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-1px;box-shadow:0 8px 22px rgba(15,95,83,.18)}
-.brand b{display:block;font-size:18px;letter-spacing:.1px}
-.brand small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
-.top-actions{display:flex;align-items:center;gap:9px}
-.lang{display:flex;background:#efede7;border-radius:999px;padding:3px}
-.lang button{border:0;background:transparent;border-radius:999px;padding:8px 10px;font-size:10px;font-weight:900;color:#6d7774}
-.lang button.on{background:#fff;color:var(--accent);box-shadow:var(--shadow2)}
-.branch{display:flex;background:#efede7;border-radius:999px;padding:3px}
-.branch button{border:0;background:transparent;border-radius:999px;padding:9px 12px;font-size:11px;font-weight:800;color:#6d7774}
-.branch button.on{background:#fff;color:var(--accent);box-shadow:var(--shadow2)}
-.screen{display:none}.screen.on{display:block}
-.page{padding:28px 22px 110px}
-.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch}
-.hero-copy{background:#fff;border:1px solid var(--line);border-radius:34px;padding:42px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.hero-copy:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:linear-gradient(145deg,rgba(185,154,98,.08),rgba(15,95,83,.08));right:-90px;bottom:-100px}
-.kicker{font-size:10px;font-weight:900;letter-spacing:1.6px;color:var(--sand);text-transform:uppercase}
-.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:50px;line-height:1.01;letter-spacing:-1.7px;margin:15px 0 15px;max-width:620px}
-.hero p{max-width:600px;color:var(--muted);font-size:15px;line-height:1.65;margin:0 0 24px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:2}
-.btn{border:0;border-radius:999px;min-height:48px;padding:0 19px;font-size:12px;font-weight:900;letter-spacing:.1px}
-.btn.primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px rgba(15,95,83,.16)}
-.btn.light{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.btn.soft{background:var(--sand-soft);color:#725f3d}
-.btn.danger{background:#fff4f2;color:#b24f45}
-.btn.small{min-height:38px;padding:0 13px;font-size:10px}
-.hero-panel{background:linear-gradient(160deg,#123e38,#0f5f53);border-radius:34px;padding:28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);min-height:330px;position:relative;overflow:hidden}
-.hero-panel:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.13);right:-80px;top:-80px}
-.hero-panel .mini{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#d5e6e2;font-weight:900}
-.hero-panel h3{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.08;margin:10px 0}
-.hero-panel p{font-size:12px;line-height:1.55;color:#dce9e6;max-width:330px}
-.hero-contact{display:grid;gap:8px;margin-top:20px}
-.hero-contact div{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.11);border-radius:18px;padding:12px 14px;font-size:12px}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:38px 0 14px}
-.section-head h2{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.05;margin:0;letter-spacing:-.7px}
-.section-head p{margin:0;color:var(--muted);font-size:12px;max-width:480px;line-height:1.5}
-.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.quick-card,.service-card,.info-card,.appointment-card,.price-card,.admin-card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow2)}
-.quick-card{border-radius:24px;padding:19px;text-align:left}
-.quick-card .icon{width:40px;height:40px;border-radius:14px;background:var(--sand-soft);display:grid;place-items:center;color:var(--accent);font-size:18px;margin-bottom:14px}
-.quick-card b{display:block;font-size:14px;margin-bottom:4px}.quick-card small{color:var(--muted);font-size:11px}
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.service-card{border-radius:26px;padding:21px;min-height:166px;text-align:left;position:relative;overflow:hidden}
-.service-card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(185,154,98,.07);right:-45px;bottom:-45px}
-.service-card .icon{font-size:26px}.service-card b{display:block;font-size:15px;margin:16px 0 6px}.service-card small{color:var(--muted);font-size:11px;line-height:1.45}
-.doctor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.doctor-card{background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:var(--shadow2)}
-.doctor-photo{height:330px;background:linear-gradient(145deg,#ece8de,#f7f5ef);position:relative;overflow:hidden}
-.doctor-photo .fallback{position:absolute;inset:0;display:grid;place-items:center;font-family:Georgia,serif;font-size:48px;color:#9f9177}
-.doctor-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:900;box-shadow:var(--shadow2)}
+.brand b{display:block;font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pill{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:999px}
+.pill button{border:0;background:transparent;padding:10px 14px;border-radius:999px;font-size:11px;font-weight:800;color:#57708a}
+.pill button.active{background:#fff;color:var(--brand);box-shadow:var(--shadow2)}
+.page{display:none;padding:24px 20px 120px}.page.active{display:block}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+.hero-main{background:linear-gradient(135deg,#14395d,#1f6fa5);color:#fff;border-radius:34px;padding:38px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero-main:before{content:"";position:absolute;width:340px;height:340px;right:-120px;top:-130px;border:1px solid rgba(255,255,255,.16);border-radius:50%}
+.hero-main:after{content:"";position:absolute;width:280px;height:280px;left:-120px;bottom:-130px;background:rgba(255,255,255,.05);border-radius:50%}
+.kicker{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.11);font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+.hero-main h1{font-size:48px;line-height:1.02;letter-spacing:-1.5px;margin:18px 0 12px;max-width:650px}
+.hero-main p{max-width:620px;font-size:15px;line-height:1.65;color:#e4eef8;margin:0 0 22px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;min-height:48px;padding:0 20px;font-size:13px;font-weight:800}
+.btn.primary{background:#fff;color:var(--brand)}
+.btn.secondary{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn.outline{background:#fff;border:1px solid var(--line);color:var(--brand)}
+.btn.small{min-height:38px;padding:0 14px;font-size:11px}
+.hero-side{display:grid;gap:18px}
+.side-card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:var(--shadow2)}
+.side-card h3{margin:0 0 10px;font-size:24px;letter-spacing:-.6px}
+.side-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.mini-item{background:var(--soft);border-radius:18px;padding:14px}
+.mini-item b{display:block;font-size:14px}.mini-item span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.section{margin-top:28px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:14px}
+.section-head h2{margin:0;font-size:32px;letter-spacing:-.8px}
+.section-head p{margin:0;color:var(--muted);font-size:13px;max-width:560px;line-height:1.55}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow2)}
+.feature-card{padding:18px}
+.feature-card .icon{width:44px;height:44px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:20px;margin-bottom:12px}
+.feature-card b{display:block;font-size:15px;margin-bottom:5px}.feature-card small{font-size:12px;line-height:1.5;color:var(--muted)}
+.service-card{padding:20px;min-height:156px;position:relative;overflow:hidden}
+.service-card:after{content:"";position:absolute;width:110px;height:110px;right:-35px;bottom:-35px;border-radius:50%;background:rgba(31,111,165,.08)}
+.service-card .icon{font-size:24px}
+.service-card b{display:block;margin:14px 0 7px;font-size:16px}
+.service-card small{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.doctor-card{overflow:hidden}
+.doctor-photo{height:320px;background:linear-gradient(135deg,#dde8f2,#f8fbff)}
+.doctor-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .doctor-body{padding:18px}
-.doctor-body b{display:block;font-size:16px;line-height:1.35}.doctor-body small{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin:6px 0 14px}
-.info-card{border-radius:28px;padding:22px}
-.info-card .label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--sand);font-weight:900}
-.info-card h3{font-family:Georgia,serif;font-size:26px;margin:8px 0 12px}.info{font-size:13px;line-height:1.7;color:#34413e}
-.booking-wrap{max-width:800px;margin:0 auto}
-.title{font-family:Georgia,"Times New Roman",serif;font-size:38px;line-height:1.04;letter-spacing:-.8px;margin:8px 0 10px}
+.doctor-body b{display:block;font-size:16px;line-height:1.35}.doctor-body small{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin:6px 0 14px}
+.equip-card{overflow:hidden}
+.equip-photo{height:220px;background:#edf4fa}
+.equip-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.equip-body{padding:18px}
+.equip-body b{display:block;font-size:16px;line-height:1.35;margin-bottom:6px}.equip-body small{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+.news-card{overflow:hidden}
+.news-photo{height:180px;background:#edf4fa}
+.news-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.news-body{padding:18px}
+.tag{display:inline-block;padding:7px 10px;border-radius:999px;background:var(--soft);color:var(--brand2);font-size:10px;font-weight:800;margin-bottom:10px}
+.news-body b{display:block;font-size:16px;line-height:1.4;margin-bottom:7px}
+.news-body p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+.info-band{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.info-card{padding:24px}
+.info-card h3{margin:0 0 10px;font-size:24px}.info-card p,.info-card li{color:var(--muted);font-size:13px;line-height:1.65}
+.info-card ul{margin:10px 0 0 18px;padding:0}
+.booking-wrap{max-width:860px;margin:0 auto}
+.title{font-size:38px;line-height:1.03;margin:0 0 8px;letter-spacing:-.8px}
 .sub{color:var(--muted);font-size:13px;line-height:1.55;margin-bottom:18px}
-.steps{display:flex;gap:6px;margin-bottom:22px}.stepbar{height:5px;background:#e6e2d8;border-radius:999px;flex:1}.stepbar.on{background:var(--accent)}
-.pick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.pick-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:18px;text-align:left;box-shadow:var(--shadow2)}
-.pick-card.sel,.doctor-line.sel,.date.sel,.slot.sel{border-color:#b7a06f;box-shadow:0 0 0 3px rgba(185,154,98,.09)}
-.pick-card .icon{font-size:24px}.pick-card b{display:block;font-size:14px;margin:10px 0 4px}.pick-card small{font-size:10px;color:var(--muted);line-height:1.4}
-.doctor-line{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:11px;margin-bottom:9px;box-shadow:var(--shadow2)}
-.thumb{width:72px;height:72px;border-radius:19px;overflow:hidden;background:#eeeae1;display:grid;place-items:center;color:#8b7c62;font-family:Georgia,serif;font-size:20px;flex:0 0 72px}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}.doctor-line b{display:block;font-size:14px}.doctor-line small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
-.dates{display:flex;gap:8px;overflow:auto;padding:2px 0 8px;scrollbar-width:none}.dates::-webkit-scrollbar{display:none}
-.date{min-width:80px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:11px 8px;text-align:center;box-shadow:var(--shadow2)}
-.date span{display:block;font-size:9px;color:var(--muted)}.date strong{display:block;font-size:21px;margin:2px 0}.date.sel{background:#fbf8f0}
-.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.slot{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 4px;font-size:12px;font-weight:900;box-shadow:var(--shadow2)}.slot.disabled{opacity:.28;text-decoration:line-through}
-.label2{display:block;font-size:11px;font-weight:900;margin:13px 0 6px}.input,.select,.textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px;font-size:14px;outline:none;box-shadow:var(--shadow2)}
-.summary{background:#fff;border:1px solid var(--line);border-radius:23px;padding:16px;box-shadow:var(--shadow2);margin:12px 0}.sumrow{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:11px}.sumrow span{color:var(--muted)}.sumrow b{text-align:right}
-.navrow{display:flex;gap:8px;margin-top:18px}.navrow .btn:last-child{margin-left:auto}
-.appointment-card,.price-card,.admin-card{border-radius:24px;padding:17px;margin-bottom:10px}.badge{display:inline-block;padding:6px 9px;border-radius:999px;font-size:9px;font-weight:900;background:#fff3d1;color:#735b1e}.badge.ok{background:#e0f3ec;color:#1d7b67}.badge.cancel{background:#fde9e5;color:#ad4b42}.muted{color:var(--muted);font-size:11px;line-height:1.5}
-.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-.price{font-size:13px;font-weight:900;color:var(--accent);margin-top:5px}
-.admin-tabs{display:flex;gap:6px;overflow:auto;background:#efede7;padding:4px;border-radius:999px;margin:12px 0 16px}
-.admin-tabs button{border:0;background:transparent;border-radius:999px;padding:10px 12px;font-size:10px;font-weight:900;white-space:nowrap}.admin-tabs button.on{background:#fff;color:var(--accent);box-shadow:var(--shadow2)}
-.note{background:#fffaf0;border:1px solid #eee3cc;color:#6e5b39;padding:12px;border-radius:17px;font-size:10px;line-height:1.5}
-.bottom{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;width:min(94%,560px);height:68px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;box-shadow:0 16px 36px rgba(31,45,41,.14);display:none;overflow:hidden}
-.tab{flex:1;border:0;background:transparent;color:#7d8985;font-size:9px;font-weight:900}.tab i{display:block;font-style:normal;font-size:18px;margin-bottom:2px}.tab.on{color:var(--accent)}
-@media(max-width:860px){
- .topbar .shell{padding:11px 14px}.brand small{display:none}.branch{display:none}
- .page{padding:16px 14px 100px}.hero{grid-template-columns:1fr}.hero-copy{padding:27px}.hero h1{font-size:38px}.hero-panel{min-height:250px}
- .quick-grid{grid-template-columns:1fr 1fr}.quick-grid .quick-card:last-child{grid-column:1/-1}
- .service-grid{grid-template-columns:1fr 1fr}.doctor-grid{display:flex;overflow:auto;gap:12px;scrollbar-width:none;padding-bottom:2px}.doctor-grid::-webkit-scrollbar{display:none}.doctor-card{min-width:285px}.doctor-photo{height:320px}
- .bottom{display:flex}
+.steps{display:flex;gap:6px;margin-bottom:16px}.step{height:6px;border-radius:999px;background:#d9e4ef;flex:1}.step.active{background:var(--brand2)}
+.select-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.select-card,.doctor-line,.date-chip,.slot,.appt-card,.price-card,.admin-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow2)}
+.select-card{padding:18px}.select-card.selected,.doctor-line.selected,.date-chip.selected,.slot.selected{outline:3px solid rgba(31,111,165,.12);border-color:#95b8d3}
+.select-card b{display:block;font-size:15px;margin-bottom:5px}.select-card small{font-size:12px;color:var(--muted)}
+.doctor-line{display:flex;gap:12px;align-items:center;padding:12px;margin-bottom:10px}
+.thumb{width:72px;height:72px;border-radius:18px;overflow:hidden;background:#e7eef5;flex:0 0 72px}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.doctor-line b{display:block;font-size:14px}.doctor-line small{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.date-row{display:flex;gap:8px;overflow:auto;padding-bottom:6px}.date-row::-webkit-scrollbar{display:none}
+.date-chip{min-width:84px;padding:12px 8px;text-align:center}.date-chip span{display:block;font-size:10px;color:var(--muted)}.date-chip strong{display:block;font-size:22px;margin:3px 0}
+.slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.slot{padding:12px 8px;text-align:center;font-size:12px;font-weight:800}.slot.disabled{opacity:.35;text-decoration:line-through}
+.label{display:block;font-size:12px;font-weight:800;margin:14px 0 6px}
+.input,.textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px;outline:none;box-shadow:var(--shadow2)}
+.textarea{min-height:90px;resize:vertical}
+.summary{padding:16px;border-radius:20px;background:#f9fbfe;border:1px solid var(--line);margin-top:14px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:12px}.row span{color:var(--muted)}
+.navrow{display:flex;gap:10px;align-items:center;margin-top:18px}
+.navrow .spacer{flex:1}
+.appt-card,.price-card,.admin-card{padding:16px;margin-bottom:10px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:10px;font-weight:800;background:#ecf4fb;color:var(--brand2)}
+.badge.ok{background:#e5f7f2;color:#1a7a63}.badge.cancel{background:#fdeceb;color:#af4d4a}
+.muted{font-size:12px;color:var(--muted);line-height:1.5}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.price-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:0}
+.login{max-width:420px;margin:0 auto 16px}
+.admin-tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:999px;margin-bottom:16px;overflow:auto}.admin-tabs button{border:0;background:transparent;padding:10px 14px;border-radius:999px;font-size:11px;font-weight:800;white-space:nowrap;color:#57708a}.admin-tabs button.active{background:#fff;color:var(--brand);box-shadow:var(--shadow2)}
+.note{padding:14px;border-radius:18px;background:#fffaf0;border:1px solid #f0e2c8;color:#84663c;font-size:12px;line-height:1.55}
+.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:95;width:min(94%,560px);height:70px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;box-shadow:0 16px 36px rgba(18,42,66,.14);display:none;overflow:hidden}
+.bottom button{flex:1;border:0;background:transparent;font-size:10px;font-weight:800;color:#688097}.bottom button i{display:block;font-style:normal;font-size:18px;margin-bottom:2px}.bottom button.active{color:var(--brand)}
+@media (max-width:980px){
+ .hero{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}
+ .info-band{grid-template-columns:1fr}.doctor-photo{height:290px}.slot-grid{grid-template-columns:repeat(3,1fr)}
+ .bottom{display:flex}.page{padding-bottom:100px}
 }
-@media(max-width:520px){
- .top-actions{gap:5px}.lang button{padding:7px 9px}.brand b{font-size:17px}
- .hero-copy{border-radius:28px}.hero-panel{border-radius:28px}.hero h1{font-size:34px}.hero p{font-size:13px}
- .section-head{margin:30px 0 12px}.section-head h2{font-size:27px}.section-head p{display:none}
- .quick-grid,.service-grid,.pick-grid{grid-template-columns:1fr 1fr}.service-card{min-height:150px;padding:17px}
- .doctor-card{min-width:255px}.doctor-photo{height:300px}.slots{grid-template-columns:repeat(3,1fr)}
- .title{font-size:32px}
+@media (max-width:640px){
+ .topbar .shell{padding:12px 14px}.brand small{display:none}.page{padding:16px 14px 100px}
+ .hero-main{padding:28px;border-radius:28px}.hero-main h1{font-size:34px}.hero-main p{font-size:13px}.side-card{border-radius:24px}
+ .section-head h2{font-size:28px}.section-head p{display:none}.grid-4,.grid-3,.select-grid{grid-template-columns:1fr}
+ .doctor-card,.equip-card,.news-card{min-width:0}.slot-grid{grid-template-columns:repeat(3,1fr)}.title{font-size:32px}
 }
 </style>
 </head>
@@ -124,264 +138,321 @@ body{display:flex;justify-content:center}
   <header class="topbar">
     <div class="shell">
       <div class="brand">
-        <div class="mark">K3</div>
-        <div><b>Коктем‑3</b><small id="brandSub"></small></div>
+        <div class="logo">K3</div>
+        <div><b>Коктем-3</b><small id="brandSub"></small></div>
       </div>
-      <div class="top-actions">
-        <div class="branch">
-          <button id="branchDental" onclick="setBranch('dental')"></button>
-          <button id="branchMed" onclick="setBranch('med')"></button>
+      <div class="controls">
+        <div class="pill" id="branchSwitch">
+          <button id="branchDentalBtn" onclick="setBranch('dental')"></button>
+          <button id="branchMedBtn" onclick="setBranch('med')"></button>
         </div>
-        <div class="lang">
+        <div class="pill">
           <button id="langRu" onclick="setLang('ru')">RU</button>
           <button id="langKk" onclick="setLang('kk')">ҚАЗ</button>
         </div>
       </div>
     </div>
   </header>
-
   <main class="shell">
-    <section id="home" class="screen on page"></section>
-    <section id="booking" class="screen page"></section>
-    <section id="my" class="screen page"></section>
-    <section id="prices" class="screen page"></section>
-    <section id="admin" class="screen page"></section>
+    <section id="page-home" class="page active"></section>
+    <section id="page-booking" class="page"></section>
+    <section id="page-my" class="page"></section>
+    <section id="page-prices" class="page"></section>
+    <section id="page-admin" class="page"></section>
   </main>
-
   <nav class="bottom">
-    <button class="tab on" data-tab="home" onclick="showTab('home')"><i>⌂</i><span id="tabHome"></span></button>
-    <button class="tab" data-tab="booking" onclick="startBooking()"><i>＋</i><span id="tabBook"></span></button>
-    <button class="tab" data-tab="my" onclick="showTab('my')"><i>◷</i><span id="tabMy"></span></button>
-    <button class="tab" data-tab="prices" onclick="showTab('prices')"><i>₸</i><span id="tabPrices"></span></button>
-    <button class="tab" data-tab="admin" onclick="showTab('admin')"><i>☰</i><span id="tabAdmin"></span></button>
+    <button data-page="home" class="active" onclick="showPage('home')"><i>⌂</i><span id="navHome"></span></button>
+    <button data-page="booking" onclick="startBooking()"><i>＋</i><span id="navBooking"></span></button>
+    <button data-page="my" onclick="showPage('my')"><i>◷</i><span id="navMy"></span></button>
+    <button data-page="prices" onclick="showPage('prices')"><i>₸</i><span id="navPrices"></span></button>
+    <button data-page="admin" onclick="showPage('admin')"><i>☰</i><span id="navAdmin"></span></button>
   </nav>
 </div>
-
 <script>
 const T={
-ru:{
- brand:'частная клиника · Костанай',dental:'Стоматология',med:'Медицинский центр',
- home:'Главная',book:'Запись',my:'Мои записи',prices:'Цены',admin:'Админ',
- kicker:'PRIVATE MEDICAL CARE',heroD:'Современная стоматология с вниманием к деталям.',heroM:'Частный медицинский центр в спокойном, современном формате.',
- heroDT:'Запись к врачу, выбор услуги и времени — без лишних звонков. Интерфейс сделан как у современной частной клиники.',
- heroMT:'Специалисты, диагностика и лечение в одном приложении. Выберите направление и удобное время.',
- bookNow:'Записаться на приём',whatsapp:'Написать в WhatsApp',quick:'Быстрые действия',call:'Позвонить',route:'Контакты клиники',
- services:'Направления и услуги',servicesSub:'Основные услуги, с которых пациент может начать запись.',
- specialists:'Наши специалисты',specialistsSub:'Крупные карточки врачей — фото и специализация сразу видны пациенту.',
- contacts:'Контакты',selectService:'Выберите услугу',selectDoctor:'Выберите врача',selectDate:'Дата и время',patient:'Данные пациента',
- realSlots:'В приложении отображаются доступные интервалы, которые открыл администратор.',name:'Имя и фамилия',phone:'Телефон',comment:'Комментарий',
- back:'Назад',next:'Продолжить',confirm:'Подтвердить запись',chooseService:'Выберите услугу',chooseDoctor:'Выберите врача',chooseTime:'Выберите дату и время',
- branchLabel:'Подразделение',service:'Услуга',doctor:'Врач',date:'Дата',time:'Время',
- created:'Запись создана',createdText:'Запись сохранена. Её можно перенести или отменить в разделе «Мои записи».',
- noBookings:'Записей пока нет.',reschedule:'Перенести',cancel:'Отменить',repeat:'Повторить запись',new:'Новая',confirmed:'Подтверждена',completed:'Завершена',cancelled:'Отменена',
- priceTitle:'Стоимость услуг',priceText:'Показываются цены, внесённые администратором клиники.',clarify:'Уточнить',
- adminTitle:'Администратор',adminSub:'Управление заявками, расписанием и ценами',pass:'Пароль администратора',login:'Войти',
- requests:'Заявки',schedule:'Расписание',priceAdmin:'Цены',reminders:'Напоминания',demo:'Демо‑пароль: koktem3',delete:'Удалить',status:'Статус',
- chooseAdminDoctor:'Врач / кабинет',chooseAdminDate:'Дата',openSlots:'Открытые интервалы',saveSlots:'Сохранить интервалы',savePrices:'Сохранить цены',pricesSaved:'Цены сохранены',
- reminderText:'WhatsApp‑напоминания доступны уже сейчас. Автоматические push/SMS требуют подключения общей серверной базы.',
- sendWA:'WhatsApp‑напоминание',saved:'Сохранено'
-},
-kk:{
- brand:'жеке клиника · Қостанай',dental:'Стоматология',med:'Медициналық орталық',
- home:'Басты бет',book:'Жазылу',my:'Менің жазбаларым',prices:'Бағалар',admin:'Әкімші',
- kicker:'PRIVATE MEDICAL CARE',heroD:'Әр бөлшекке мән беретін заманауи стоматология.',heroM:'Тыныш әрі заманауи форматтағы жеке медициналық орталық.',
- heroDT:'Дәрігерге жазылу, қызмет пен уақытты таңдау — артық қоңыраусыз. Интерфейс заманауи жеке клиника стилінде жасалған.',
- heroMT:'Мамандар, диагностика және емдеу бір қолданбада. Бағыт пен ыңғайлы уақытты таңдаңыз.',
- bookNow:'Қабылдауға жазылу',whatsapp:'WhatsApp арқылы жазу',quick:'Жылдам әрекеттер',call:'Қоңырау шалу',route:'Клиника байланыстары',
- services:'Бағыттар мен қызметтер',servicesSub:'Пациент жазылуды бастай алатын негізгі қызметтер.',
- specialists:'Біздің мамандар',specialistsSub:'Дәрігерлердің ірі карточкалары — фото мен мамандану бірден көрінеді.',
- contacts:'Байланыс',selectService:'Қызметті таңдаңыз',selectDoctor:'Дәрігерді таңдаңыз',selectDate:'Күн мен уақыт',patient:'Пациент деректері',
- realSlots:'Қолданбада әкімші ашқан бос уақыттар көрсетіледі.',name:'Аты-жөні',phone:'Телефон',comment:'Түсініктеме',
- back:'Артқа',next:'Жалғастыру',confirm:'Жазылуды растау',chooseService:'Қызметті таңдаңыз',chooseDoctor:'Дәрігерді таңдаңыз',chooseTime:'Күн мен уақытты таңдаңыз',
- branchLabel:'Бөлім',service:'Қызмет',doctor:'Дәрігер',date:'Күні',time:'Уақыты',
- created:'Жазылу жасалды',createdText:'Жазылу сақталды. Оны «Менің жазбаларым» бөлімінде ауыстыруға немесе жоюға болады.',
- noBookings:'Әзірге жазылулар жоқ.',reschedule:'Ауыстыру',cancel:'Бас тарту',repeat:'Қайта жазылу',new:'Жаңа',confirmed:'Расталды',completed:'Аяқталды',cancelled:'Бас тартылды',
- priceTitle:'Қызметтердің бағасы',priceText:'Клиника әкімшісі енгізген бағалар көрсетіледі.',clarify:'Нақтылау',
- adminTitle:'Әкімші',adminSub:'Өтінімдер, кесте және бағаларды басқару',pass:'Әкімші құпиясөзі',login:'Кіру',
- requests:'Өтінімдер',schedule:'Кесте',priceAdmin:'Бағалар',reminders:'Еске салу',demo:'Демо құпиясөз: koktem3',delete:'Жою',status:'Күйі',
- chooseAdminDoctor:'Дәрігер / кабинет',chooseAdminDate:'Күн',openSlots:'Ашық уақыттар',saveSlots:'Уақыттарды сақтау',savePrices:'Бағаларды сақтау',pricesSaved:'Бағалар сақталды',
- reminderText:'WhatsApp арқылы еске салу қазір қолжетімді. Автоматты push/SMS үшін ортақ серверлік база қажет.',
- sendWA:'WhatsApp еске салуы',saved:'Сақталды'
-}};
+ ru:{
+  brand:'премиальная частная клиника · Костанай', dental:'Стоматология', med:'Физиополиклиника',
+  home:'Главная', booking:'Запись', my:'Мои записи', prices:'Цены', admin:'Админ',
+  heroKicker:'premium medical care',
+  heroTitleDental:'Коктем-3 Premium. Уровень частной клиники в современном цифровом формате.',
+  heroTitleMed:'Коктем-3 Premium. Физиополиклиника и медицинский центр в более дорогом, современном стиле.',
+  heroTextDental:'Этот вариант вдохновлён логикой премиального медицинского сайта: крупный первый экран, акцент на направления, оборудование, новости и удобную запись на приём.',
+  heroTextMed:'В этой версии мы усилили подачу медицинского центра: направления, диагностика, оборудование, публикации и удобная онлайн-запись на русском и казахском языках.',
+  primaryCTA:'Записаться на приём', secondaryCTA:'Открыть WhatsApp',
+  sideTitle:'Что добавили в этот вариант', sideText:'Премиальная подача, новости, оборудование, более крупные фото и отдельные блоки для доверия пациента.',
+  feat1:'Два языка', feat1s:'Русский и казахский', feat2:'Онлайн-запись', feat2s:'Выбор услуги, врача и времени', feat3:'Лента новостей', feat3s:'Статьи и публикации', feat4:'Оборудование', feat4s:'Фото и описание аппаратов',
+  quickTitle:'Почему этот вариант сильнее', quickText:'По структуре он ближе к сайтам частных клиник: сначала доверие, затем услуги, специалисты, оборудование и новости.',
+  services:'Основные направления', servicesText:'Блок услуг можно сразу использовать как старт записи.',
+  doctors:'Специалисты', doctorsText:'Крупные карточки помогают сайту выглядеть дороже и понятнее для пациента.',
+  equip:'Оборудование', equipText:'На официальном сайте Коктем-3 уже есть отдельные страницы оборудования — их логично вывести прямо на главную.',
+  news:'Новости и публикации', newsText:'Лента новостей усиливает доверие и даёт ощущение живого медицинского центра.',
+  contacts:'Контакты и формат приёма', contactsText:'Контактный блок и короткие преимущества лучше оставить ближе к концу главной страницы.',
+  bookTitle:'Запись на приём', bookSub:'Выберите направление, специалиста и удобное время.',
+  step1:'Услуга', step2:'Врач', step3:'Время', step4:'Данные',
+  chooseService:'Выберите услугу', chooseDoctor:'Выберите врача', chooseDate:'Выберите дату', chooseSlot:'Выберите время',
+  patient:'Данные пациента', name:'Имя и фамилия', phone:'Телефон', comment:'Комментарий', confirm:'Подтвердить запись',
+  back:'Назад', next:'Далее', branch:'Подразделение', doctor:'Врач', date:'Дата', time:'Время', service:'Услуга',
+  bookingSaved:'Запись создана', bookingSavedText:'Демо-запись сохранена в приложении. Её можно показать клиенту или протестировать на телефоне.',
+  noBookings:'Пока записей нет.', reschedule:'Перенести', cancel:'Отменить', repeat:'Повторить', status:'Статус',
+  pricesTitle:'Цены', pricesSub:'Демо-прайс можно редактировать через админ-панель.', clarify:'Уточнить',
+  adminTitle:'Администратор', adminSub:'Управление заявками, расписанием и ценами', pass:'Пароль администратора', login:'Войти', demoPass:'Демо-пароль: koktem3',
+  requests:'Заявки', schedule:'Расписание', priceAdmin:'Цены', reminders:'Напоминания',
+  save:'Сохранить', saved:'Сохранено', slots:'Открытые слоты', priceEdited:'Редактировать прайс', waHint:'Сейчас можно отправлять напоминание через WhatsApp. Автоматизация push/SMS появится после подключения серверной части.',
+  contact1:'Адрес', contact2:'Телефоны', contact3:'Режим работы', contact4:'Преимущества',
+  advantage1:'Современная подача', advantage2:'Фото специалистов и оборудования', advantage3:'Онлайн-запись и админка', advantage4:'Русский + казахский интерфейс'
+ },
+ kk:{
+  brand:'премиум жеке клиника · Қостанай', dental:'Стоматология', med:'Физиополиклиника',
+  home:'Басты бет', booking:'Жазылу', my:'Менің жазбаларым', prices:'Бағалар', admin:'Әкімші',
+  heroKicker:'premium medical care',
+  heroTitleDental:'Коктем-3 Premium. Қазіргі цифрлық форматтағы жеке клиника деңгейі.',
+  heroTitleMed:'Коктем-3 Premium. Физиополиклиника мен медициналық орталыққа арналған заманауи қымбат стиль.',
+  heroTextDental:'Бұл нұсқа премиум медициналық сайт логикасына негізделген: ірі алғашқы экран, бағыттар, жабдық, жаңалықтар және ыңғайлы онлайн-жазылу.',
+  heroTextMed:'Бұл нұсқада медициналық орталық блогы күшейтілді: бағыттар, диагностика, жабдықтар, жарияланымдар және орыс/қазақ тіліндегі онлайн-жазылу.',
+  primaryCTA:'Қабылдауға жазылу', secondaryCTA:'WhatsApp ашу',
+  sideTitle:'Бұл нұсқада не бар', sideText:'Премиум ұсыну, жаңалықтар, жабдық, ірі фотолар және пациент сенімі үшін бөлек блоктар.',
+  feat1:'Екі тіл', feat1s:'Орыс және қазақ', feat2:'Онлайн жазылу', feat2s:'Қызмет, дәрігер және уақыт таңдау', feat3:'Жаңалықтар лентасы', feat3s:'Мақалалар мен жарияланымдар', feat4:'Жабдықтар', feat4s:'Фото және аппарат сипаттамасы',
+  quickTitle:'Неліктен бұл нұсқа мықтырақ', quickText:'Құрылымы жеке клиникалар сайтына жақын: алдымен сенім, кейін қызметтер, мамандар, жабдықтар және жаңалықтар.',
+  services:'Негізгі бағыттар', servicesText:'Қызметтер блогын жазылудың бастапқы экраны ретінде пайдалануға болады.',
+  doctors:'Мамандар', doctorsText:'Ірі карточкалар сайтты қымбат әрі пациентке түсінікті етеді.',
+  equip:'Жабдықтар', equipText:'Коктем-3 ресми сайтында жабдықтарға арналған бөлек беттер бар — оларды басты бетке шығару орынды.',
+  news:'Жаңалықтар мен жарияланымдар', newsText:'Жаңалықтар лентасы сенімді күшейтеді және орталықтың белсенді екенін көрсетеді.',
+  contacts:'Байланыс және қабылдау форматы', contactsText:'Байланыс блогы мен артықшылықтарды басты беттің соңына жақын қалдырған дұрыс.',
+  bookTitle:'Қабылдауға жазылу', bookSub:'Бағытты, дәрігерді және ыңғайлы уақытты таңдаңыз.',
+  step1:'Қызмет', step2:'Дәрігер', step3:'Уақыт', step4:'Деректер',
+  chooseService:'Қызметті таңдаңыз', chooseDoctor:'Дәрігерді таңдаңыз', chooseDate:'Күнді таңдаңыз', chooseSlot:'Уақытты таңдаңыз',
+  patient:'Пациент деректері', name:'Аты-жөні', phone:'Телефон', comment:'Түсініктеме', confirm:'Жазылуды растау',
+  back:'Артқа', next:'Келесі', branch:'Бөлім', doctor:'Дәрігер', date:'Күні', time:'Уақыты', service:'Қызмет',
+  bookingSaved:'Жазылу жасалды', bookingSavedText:'Демо-жазылу қолданбада сақталды. Оны клиентке көрсетуге немесе телефонда тексеруге болады.',
+  noBookings:'Жазылулар жоқ.', reschedule:'Ауыстыру', cancel:'Бас тарту', repeat:'Қайта жазылу', status:'Күйі',
+  pricesTitle:'Бағалар', pricesSub:'Демо-прайсты әкімші панелінде өзгертуге болады.', clarify:'Нақтылау',
+  adminTitle:'Әкімші', adminSub:'Өтінімдерді, кестені және бағаларды басқару', pass:'Әкімші құпиясөзі', login:'Кіру', demoPass:'Демо-құпиясөз: koktem3',
+  requests:'Өтінімдер', schedule:'Кесте', priceAdmin:'Бағалар', reminders:'Еске салу',
+  save:'Сақтау', saved:'Сақталды', slots:'Ашық слоттар', priceEdited:'Прайсты өңдеу', waHint:'Қазір WhatsApp арқылы еске салу жіберуге болады. Push/SMS автоматтандыруы серверлік бөлік қосылғаннан кейін пайда болады.',
+  contact1:'Мекенжай', contact2:'Телефондар', contact3:'Жұмыс уақыты', contact4:'Артықшылықтар',
+  advantage1:'Заманауи ұсыныс', advantage2:'Мамандар мен жабдық фотолары', advantage3:'Онлайн жазылу және әкімші панелі', advantage4:'Орыс + қазақ интерфейсі'
+ }
+};
 
 const DATA={
  dental:{
-  address:'Костанай, ул. Тәуелсіздік, 87',phone:'+7 (7142) 54‑96‑05',mobile:'+7 747 752 82 53',wa:'77477528253',
+  nameRu:'Стоматология', nameKk:'Стоматология', address:'Костанай, ул. Тәуелсіздік, 87', phones:['+7 (7142) 54-96-05','+7 747 752 82 53'], hours:'Пн–Пт 8:00–19:00 · Сб 9:00–15:00 · Вс 9:00–14:00', wa:'77477528253',
   services:[
-    {id:'d_consult',ico:'✦',ru:'Консультация',kk:'Консультация',subru:'Первичный осмотр и план лечения',subkk:'Алғашқы тексеру және ем жоспары',docs:['shak','kuy','kir','shu','tek','koz']},
-    {id:'d_treat',ico:'◌',ru:'Лечение зубов',kk:'Тісті емдеу',subru:'Терапия, кариес, реставрация',subkk:'Терапия, кариес, қалпына келтіру',docs:['kir','shu','tek','koz']},
-    {id:'d_impl',ico:'◇',ru:'Имплантология',kk:'Имплантология',subru:'Имплантация и хирургия',subkk:'Имплантация және хирургия',docs:['shak','kuy']},
-    {id:'d_prost',ico:'◈',ru:'Ортопедия',kk:'Ортопедия',subru:'Коронки и протезирование',subkk:'Сауыттар және протездеу',docs:['shak','kuy']},
-    {id:'d_child',ico:'○',ru:'Детская стоматология',kk:'Балалар стоматологиясы',subru:'Приём детей',subkk:'Балаларды қабылдау',docs:['koz']},
-    {id:'d_white',ico:'✧',ru:'Эстетика',kk:'Эстетика',subru:'Отбеливание и эстетическая стоматология',subkk:'Ағарту және эстетикалық стоматология',docs:['kir','shu','tek']}
+    {id:'consult', icon:'🦷', ru:'Консультация', kk:'Консультация', subRu:'Первичный осмотр и план лечения', subKk:'Алғашқы тексеру және ем жоспары'},
+    {id:'therapy', icon:'✨', ru:'Лечение зубов', kk:'Тісті емдеу', subRu:'Терапия, кариес, реставрация', subKk:'Терапия, кариес, қалпына келтіру'},
+    {id:'ortho', icon:'📐', ru:'Ортодонтия', kk:'Ортодонтия', subRu:'Брекеты и каппы', subKk:'Брекет және каппа'},
+    {id:'impl', icon:'🔹', ru:'Имплантология', kk:'Имплантология', subRu:'Имплантация и хирургия', subKk:'Имплантация және хирургия'},
+    {id:'child', icon:'👶', ru:'Детская стоматология', kk:'Балалар стоматологиясы', subRu:'Приём детей', subKk:'Балаларды қабылдау'},
+    {id:'esth', icon:'🌟', ru:'Эстетическая стоматология', kk:'Эстетикалық стоматология', subRu:'Отбеливание и эстетика', subKk:'Ағарту және эстетика'}
   ],
   doctors:[
-    {id:'shak',name:'Шакиров Амантай Алексеевич',ru:'Хирург‑ортопед‑имплантолог',kk:'Хирург‑ортопед‑имплантолог',photo:'https://koktem-3.kz/images/stomatologiya/spec/shaa.jpg'},
-    {id:'kuy',name:'Куянбаев Руслан Бахытжанович',ru:'Ортопед‑имплантолог',kk:'Ортопед‑имплантолог',photo:'https://koktem-3.kz/images/stomatologiya/spec/krb.jpg'},
-    {id:'kir',name:'Киричек Ольга Игоревна',ru:'Стоматолог‑терапевт',kk:'Стоматолог‑терапевт',photo:'https://koktem-3.kz/images/stomatologiya/spec/koi.jpg'},
-    {id:'shu',name:'Шушанов Талгат Жолдыбаевич',ru:'Стоматолог‑терапевт',kk:'Стоматолог‑терапевт',photo:'https://koktem-3.kz/images/stomatologiya/spec/shtzh.jpg'},
-    {id:'tek',name:'Тэкешова Ажар Сериковна',ru:'Стоматолог‑терапевт',kk:'Стоматолог‑терапевт',photo:'https://koktem-3.kz/images/stomatologiya/spec/tas.jpg'},
-    {id:'koz',name:'Кожахметова Гульжихан Шомытовна',ru:'Терапевт, детский стоматолог',kk:'Терапевт, балалар стоматологы',photo:'https://koktem-3.kz/images/stomatologiya/spec/kgsh.jpg'}
+    {id:'shak', name:'Шакиров Амантай Алексеевич', roleRu:'Хирург-ортопед-имплантолог', roleKk:'Хирург-ортопед-имплантолог', photo:'https://koktem-3.kz/images/stomatologiya/spec/shaa.jpg'},
+    {id:'kuy', name:'Куянбаев Руслан Бахытжанович', roleRu:'Ортопед-имплантолог', roleKk:'Ортопед-имплантолог', photo:'https://koktem-3.kz/images/stomatologiya/spec/krb.jpg'},
+    {id:'kir', name:'Кириченко Роман Сергеевич', roleRu:'Стоматолог-терапевт', roleKk:'Стоматолог-терапевт', photo:'https://koktem-3.kz/images/stomatologiya/spec/krs.jpg'}
+  ],
+  equipment:[
+    {titleRu:'Цифровой стоматологический рабочий процесс', titleKk:'Цифрлық стоматологиялық жұмыс процесі', descRu:'Цифровой подход ускоряет диагностику, коммуникацию с пациентом и планирование лечения.', descKk:'Цифрлық тәсіл диагностика мен емді жоспарлауды жеделдетеді.', img:'https://koktem-3.kz/images/stomatologiya/oborudovanie/DigitalStProc.jpg'},
+    {titleRu:'Planmeca ProOne и Planmeca ProX', titleKk:'Planmeca ProOne және Planmeca ProX', descRu:'На сайте Коктем-3 описана современная рентген-диагностика на Planmeca ProOne и Planmeca ProX.', descKk:'Коктем-3 сайтында Planmeca ProOne және Planmeca ProX заманауи рентген-диагностикасы көрсетілген.', img:'https://koktem-3.kz/images/stomatologiya/oborudovanie/planmeca.jpg'}
+  ],
+  news:[
+    {catRu:'Статьи', catKk:'Мақалалар', titleRu:'Как быстро проверить статус в ОСМС в 2026 г.', titleKk:'2026 жылы МӘМС мәртебесін қалай тез тексеруге болады', textRu:'Полезный материал для пациентов по проверке статуса ОСМС.', textKk:'Пациенттерге МӘМС мәртебесін тексеру бойынша пайдалы материал.', img:'https://koktem-3.kz/images/novosti/osmsrus.jpg'},
+    {catRu:'Статьи', catKk:'Мақалалар', titleRu:'Школьники в системе ОСМС 2026', titleKk:'Мектеп оқушылары және МӘМС 2026', textRu:'Актуальная информация для родителей и семей.', textKk:'Ата-аналар мен отбасыларға арналған өзекті ақпарат.', img:'https://koktem-3.kz/images/novosti/osmskaz.jpg'},
+    {catRu:'ОСМС', catKk:'МӘМС', titleRu:'ОСМС при беременности', titleKk:'Жүктілік кезіндегі МӘМС', textRu:'Раздел публикаций помогает регулярно обновлять важную информацию для пациентов.', textKk:'Жарияланымдар бөлімі пациенттер үшін маңызды ақпаратты үнемі жаңартуға көмектеседі.', img:'https://koktem-3.kz/images/novosti/osmsrus.jpg'}
+  ],
+  prices:[
+    {nameRu:'Консультация стоматолога', nameKk:'Стоматолог кеңесі', price:'7 000 ₸'},
+    {nameRu:'Лечение кариеса', nameKk:'Кариес емі', price:'18 000 ₸'},
+    {nameRu:'Профессиональная гигиена', nameKk:'Кәсіби гигиена', price:'22 000 ₸'},
+    {nameRu:'Ортодонтическая консультация', nameKk:'Ортодонт кеңесі', price:'10 000 ₸'}
   ]
  },
  med:{
-  address:'Костанай, ул. Летунова, 79',phone:'+7 (7142) 54‑84‑45',mobile:'+7 777 635 53 96',wa:'77776355396',
+  nameRu:'Физиополиклиника', nameKk:'Физиополиклиника', address:'Костанай, ул. Летунова, 79', phones:['+7 (7142) 54-84-45','+7 777 635 53 96'], hours:'Пн–Пт 8:00–19:00 · Сб 9:00–14:00 · Праздники 9:00–14:00', wa:'77776355396',
   services:[
-    {id:'m_therapy',ico:'✦',ru:'Терапевт',kk:'Терапевт',subru:'Первичный и повторный приём',subkk:'Алғашқы және қайталама қабылдау',docs:['kuz']},
-    {id:'m_cardio',ico:'♡',ru:'Кардиология',kk:'Кардиология',subru:'Сердце, давление, диагностика',subkk:'Жүрек, қысым, диагностика',docs:['sap','may']},
-    {id:'m_neuro',ico:'◌',ru:'Неврология',kk:'Неврология',subru:'Нервная система',subkk:'Жүйке жүйесі',docs:['sapan']},
-    {id:'m_ent',ico:'◇',ru:'ЛОР',kk:'ЛОР',subru:'Ухо, горло, нос',subkk:'Құлақ, тамақ, мұрын',docs:['evl']},
-    {id:'m_physio',ico:'〰',ru:'Физиотерапия',kk:'Физиотерапия',subru:'Восстановление и физиолечение',subkk:'Қалпына келу және физиотерапия',docs:['reg']},
-    {id:'m_ultra',ico:'◎',ru:'Диагностика и УЗИ',kk:'Диагностика және УДЗ',subru:'Исследования и диагностика',subkk:'Зерттеулер және диагностика',docs:['reg']}
+    {id:'ther', icon:'🩺', ru:'Терапевт', kk:'Терапевт', subRu:'Первичный приём', subKk:'Алғашқы қабылдау'},
+    {id:'card', icon:'❤️', ru:'Кардиолог', kk:'Кардиолог', subRu:'Консультация и ЭКГ', subKk:'Кеңес және ЭКГ'},
+    {id:'endo', icon:'🧪', ru:'Эндокринолог', kk:'Эндокринолог', subRu:'Консультация специалиста', subKk:'Маман кеңесі'},
+    {id:'lor', icon:'👂', ru:'ЛОР', kk:'ЛОР', subRu:'Диагностика и лечение', subKk:'Диагностика және ем'},
+    {id:'gyn', icon:'🌿', ru:'Гинеколог', kk:'Гинеколог', subRu:'Приём и диагностика', subKk:'Қабылдау және диагностика'},
+    {id:'physio', icon:'💆', ru:'Физиопроцедуры', kk:'Физиопроцедуралар', subRu:'Реабилитация и восстановление', subKk:'Оңалту және қалпына келу'}
   ],
   doctors:[
-    {id:'kuz',name:'Кузнецова Ирина Анатольевна',ru:'Терапевт, эндокринолог',kk:'Терапевт, эндокринолог',photo:'https://koktem-3.kz/images/medcentr/spec/kia.jpg'},
-    {id:'sap',name:'Сапрыкина Лариса Николаевна',ru:'Врач‑кардиолог',kk:'Кардиолог дәрігер',photo:'https://koktem-3.kz/images/medcentr/spec/sln.jpg'},
-    {id:'may',name:'Майер Оксана Петровна',ru:'Кардиолог, функциональная диагностика',kk:'Кардиолог, функционалдық диагностика',photo:'https://koktem-3.kz/images/medcentr/spec/mop.jpg'},
-    {id:'sapan',name:'Сапанова Гульжаухар Султановна',ru:'Врач‑невролог',kk:'Невролог дәрігер',photo:'https://koktem-3.kz/images/medcentr/spec/sgs.jpg'},
-    {id:'evl',name:'Евлоева Ирина Николаевна',ru:'Оториноларинголог',kk:'Оториноларинголог',photo:'https://koktem-3.kz/images/medcentr/spec/ein.jpg'},
-    {id:'reg',name:'Регистратура медицинского центра',ru:'Подберём специалиста или кабинет',kk:'Маман немесе кабинетті таңдап береміз',photo:''}
+    {id:'ther', name:'Терапевт', roleRu:'Первичный приём и маршрутизация', roleKk:'Алғашқы қабылдау және бағыттау', photo:'https://koktem-3.kz/images/medcentr/uslugi/terapevt.jpg'},
+    {id:'lor', name:'Оториноларинголог', roleRu:'Диагностика ЛОР-патологий', roleKk:'ЛОР патологияларын диагностикалау', photo:'https://koktem-3.kz/images/medcentr/uslugi/lor.jpg'},
+    {id:'card', name:'Кардиолог', roleRu:'ЭКГ, Холтер, консультация', roleKk:'ЭКГ, Холтер, кеңес', photo:'https://koktem-3.kz/images/medcentr/uslugi/kardiolog.jpg'}
+  ],
+  equipment:[
+    {titleRu:'Флюорограф КФ-400', titleKk:'КФ-400 флюорографы', descRu:'На сайте Коктем-3 опубликован материал о цифровом флюорографе КФ-400 и его применении.', descKk:'Коктем-3 сайтында КФ-400 цифрлық флюорографы туралы материал жарияланған.', img:'https://koktem-3.kz/images/medcentr/oborudovanie/kf-400.jpg'},
+    {titleRu:'Флюорография и рентгенография', titleKk:'Флюорография және рентгенография', descRu:'Отдельный иллюстративный блок помогает показать оборудование и диагностические возможности центра.', descKk:'Иллюстрациялық блок орталықтың жабдықтары мен диагностикалық мүмкіндіктерін көрсетуге көмектеседі.', img:'https://koktem-3.kz/images/medcentr/oborudovanie/fluro.jpg'},
+    {titleRu:'BTL – 08 ECG Holter', titleKk:'BTL – 08 ECG Holter', descRu:'Суточное мониторирование ЭКГ — хороший пример оборудования, которое стоит вынести на главную.', descKk:'ЭКГ тәуліктік мониторингі — басты бетке шығаруға болатын жабдықтың жақсы мысалы.', img:'https://koktem-3.kz/images/medcentr/oborudovanie/fluro.jpg'}
+  ],
+  news:[
+    {catRu:'Публикации', catKk:'Жарияланымдар', titleRu:'Приёмные часы специалистов', titleKk:'Мамандардың қабылдау уақыты', textRu:'Врач терапевт, кардиолог, эндокринолог, невропатолог, травматолог и другие специалисты доступны по расписанию.', textKk:'Терапевт, кардиолог, эндокринолог, невропатолог, травматолог және басқа мамандар кесте бойынша қабылдайды.', img:'https://koktem-3.kz/images/novosti/osmsrus.jpg'},
+    {catRu:'Новости', catKk:'Жаңалықтар', titleRu:'Профилактика сезонных заболеваний', titleKk:'Маусымдық аурулардың алдын алу', textRu:'Лента новостей может использоваться для публикации полезных материалов и напоминаний пациентам.', textKk:'Жаңалықтар лентасын пайдалы материалдар мен пациенттерге еске салулар үшін қолдануға болады.', img:'https://koktem-3.kz/images/novosti/osmskaz.jpg'},
+    {catRu:'ОСМС', catKk:'МӘМС', titleRu:'Проверка статуса ОСМС', titleKk:'МӘМС мәртебесін тексеру', textRu:'Отдельный новостной блок делает приложение живым и регулярно обновляемым.', textKk:'Жаңалықтар блогы қолданбаны жандандырып, тұрақты жаңартуға мүмкіндік береді.', img:'https://koktem-3.kz/images/novosti/osmsrus.jpg'}
+  ],
+  prices:[
+    {nameRu:'Консультация терапевта', nameKk:'Терапевт кеңесі', price:'8 000 ₸'},
+    {nameRu:'Консультация кардиолога', nameKk:'Кардиолог кеңесі', price:'12 000 ₸'},
+    {nameRu:'ЭКГ', nameKk:'ЭКГ', price:'5 000 ₸'},
+    {nameRu:'Флюорография', nameKk:'Флюорография', price:'6 000 ₸'}
   ]
  }
 };
 
-const PRICES={
- dental:[
-  {id:'d1',ru:'Консультация стоматолога',kk:'Стоматолог кеңесі',price:''},
-  {id:'d2',ru:'Лечение зубов',kk:'Тісті емдеу',price:''},
-  {id:'d3',ru:'Имплантация',kk:'Имплантация',price:''},
-  {id:'d4',ru:'Протезирование',kk:'Протездеу',price:''}
- ],
- med:[
-  {id:'m1',ru:'Консультация специалиста',kk:'Маман кеңесі',price:''},
-  {id:'m2',ru:'УЗИ / диагностика',kk:'УДЗ / диагностика',price:''},
-  {id:'m3',ru:'Физиотерапия',kk:'Физиотерапия',price:''},
-  {id:'m4',ru:'Медицинская комиссия',kk:'Медициналық комиссия',price:''}
- ]
-};
-const TIMES=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','14:00','14:30','15:00','15:30','16:00','16:30','17:00'];
-
-let lang=localStorage.getItem('k3p_lang')||'ru';
-let branch=localStorage.getItem('k3p_branch')||'dental';
-let flow={step:1,service:null,doctor:null,date:null,time:null,edit:null};
-let adminMode='requests';
-
-const qs=s=>document.querySelector(s), tr=k=>T[lang][k]||k, B=()=>DATA[branch];
-const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-const sName=s=>s?.[lang]||s?.ru||'', dSpec=d=>d?.[lang]||d?.ru||'';
-function setLang(v){lang=v;localStorage.setItem('k3p_lang',v);renderShell();renderActive()}
-function setBranch(v){branch=v;localStorage.setItem('k3p_branch',v);renderShell();renderActive()}
-function renderShell(){
-  qs('#brandSub').textContent=tr('brand');
-  qs('#langRu').classList.toggle('on',lang==='ru');qs('#langKk').classList.toggle('on',lang==='kk');
-  qs('#branchDental').textContent=tr('dental');qs('#branchMed').textContent=tr('med');
-  qs('#branchDental').classList.toggle('on',branch==='dental');qs('#branchMed').classList.toggle('on',branch==='med');
-  [['tabHome','home'],['tabBook','book'],['tabMy','my'],['tabPrices','prices'],['tabAdmin','admin']].forEach(([id,k])=>qs('#'+id).textContent=tr(k));
+let state={lang:localStorage.getItem('k3_lang')||'ru',branch:localStorage.getItem('k3_branch')||'dental',page:'home',bookingStep:0,selectedService:null,selectedDoctor:null,selectedDate:null,selectedSlot:null,adminLogged:false,adminTab:'requests'};
+const sampleSlots=['09:00','09:30','10:00','10:30','11:30','12:00','15:00','16:30'];
+const today=new Date();
+const dateOptions=[0,1,2,3,4].map(i=>{const d=new Date(today);d.setDate(today.getDate()+i);return d});
+function $(id){return document.getElementById(id)}
+function txt(k){return T[state.lang][k]}
+function branchData(){return DATA[state.branch]}
+function savePrefs(){localStorage.setItem('k3_lang',state.lang); localStorage.setItem('k3_branch',state.branch)}
+function getBookings(){return JSON.parse(localStorage.getItem('k3_bookings')||'[]')}
+function setBookings(v){localStorage.setItem('k3_bookings',JSON.stringify(v))}
+function getAdmin(){return JSON.parse(localStorage.getItem('k3_admin_data')||'{}')}
+function setAdmin(v){localStorage.setItem('k3_admin_data',JSON.stringify(v))}
+function mergedPrices(){const b=branchData(); const admin=getAdmin(); return admin[state.branch+'_prices']||b.prices}
+function mergedSlots(){const admin=getAdmin(); return admin[state.branch+'_slots']||sampleSlots}
+function formatDate(d){return d.toLocaleDateString(state.lang==='ru'?'ru-RU':'kk-KZ',{day:'numeric',month:'long'})}
+function setLang(lang){state.lang=lang; savePrefs(); renderAll()}
+function setBranch(branch){state.branch=branch; state.selectedService=null; state.selectedDoctor=null; state.selectedDate=null; state.selectedSlot=null; savePrefs(); renderAll()}
+function setActiveNav(){document.querySelectorAll('.bottom button').forEach(btn=>btn.classList.toggle('active',btn.dataset.page===state.page));}
+function showPage(page){state.page=page; document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page)); setActiveNav(); if(page==='booking') renderBooking(); if(page==='my') renderMy(); if(page==='prices') renderPrices(); if(page==='admin') renderAdmin();}
+function startBooking(){state.page='booking'; state.bookingStep=0; showPage('booking')}
+function openWhatsApp(){window.open('https://wa.me/'+branchData().wa,'_blank')}
+function renderHeader(){
+ $('brandSub').textContent=txt('brand');
+ $('langRu').classList.toggle('active',state.lang==='ru'); $('langKk').classList.toggle('active',state.lang==='kk');
+ $('branchDentalBtn').classList.toggle('active',state.branch==='dental'); $('branchMedBtn').classList.toggle('active',state.branch==='med');
+ $('branchDentalBtn').textContent=txt('dental'); $('branchMedBtn').textContent=txt('med');
+ $('navHome').textContent=txt('home'); $('navBooking').textContent=txt('booking'); $('navMy').textContent=txt('my'); $('navPrices').textContent=txt('prices'); $('navAdmin').textContent=txt('admin');
 }
-function showTab(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('on'));qs('#'+id).classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===id));renderActive()}
-function renderActive(){const id=document.querySelector('.screen.on')?.id||'home';if(id==='home')renderHome();if(id==='booking')renderBooking();if(id==='my')renderMy();if(id==='prices')renderPrices();if(id==='admin')renderAdmin();window.scrollTo(0,0)}
-function getBookings(){try{return JSON.parse(localStorage.getItem('k3p_bookings')||'[]')}catch{return[]}}
-function saveBookings(v){localStorage.setItem('k3p_bookings',JSON.stringify(v))}
-function getPrices(){try{return JSON.parse(localStorage.getItem('k3p_prices')||JSON.stringify(PRICES))}catch{return JSON.parse(JSON.stringify(PRICES))}}
-function savePrices(v){localStorage.setItem('k3p_prices',JSON.stringify(v))}
-function getSlots(){try{return JSON.parse(localStorage.getItem('k3p_slots')||'{}')}catch{return{}}}
-function saveSlots(v){localStorage.setItem('k3p_slots',JSON.stringify(v))}
-function sk(br,d,dt){return br+'|'+d+'|'+dt}
-function serviceById(id){return B().services.find(x=>x.id===id)}
-function doctorById(id){return B().doctors.find(x=>x.id===id)}
-function openWA(msg){window.open('https://wa.me/'+B().wa+'?text='+encodeURIComponent(msg),'_blank')}
-function statusLabel(s){return s==='Новая'?tr('new'):s==='Подтверждена'?tr('confirmed'):s==='Завершена'?tr('completed'):s==='Отменена'?tr('cancelled'):s}
-function badgeClass(s){return s==='Подтверждена'||s==='Завершена'?'ok':s==='Отменена'?'cancel':''}
-
-function doctorCard(d){
- const initials=d.name.split(' ').slice(0,2).map(x=>x[0]).join('');
- return `<article class="doctor-card"><div class="doctor-photo"><div class="fallback">${initials}</div>${d.photo?`<img src="${d.photo}" alt="${esc(d.name)}" onerror="this.remove()">`:''}</div><div class="doctor-body"><b>${esc(d.name)}</b><small>${esc(dSpec(d))}</small><button class="btn soft small" onclick="startBooking(null,'${d.id}')">${tr('bookNow')}</button></div></article>`;
-}
-function renderHome(){
- const b=B();
- qs('#home').innerHTML=`
+function serviceName(s){return state.lang==='ru'?s.ru:s.kk}
+function serviceSub(s){return state.lang==='ru'?s.subRu:s.subKk}
+function docRole(d){return state.lang==='ru'?d.roleRu:d.roleKk}
+function renderHome(){const b=branchData(); const el=$('page-home');
+ const heroTitle=state.branch==='dental'?txt('heroTitleDental'):txt('heroTitleMed');
+ const heroText=state.branch==='dental'?txt('heroTextDental'):txt('heroTextMed');
+ el.innerHTML=`
  <div class="hero">
-   <div class="hero-copy">
-     <div class="kicker">${tr('kicker')}</div>
-     <h1>${branch==='dental'?tr('heroD'):tr('heroM')}</h1>
-     <p>${branch==='dental'?tr('heroDT'):tr('heroMT')}</p>
-     <div class="hero-actions">
-       <button class="btn primary" onclick="startBooking()">${tr('bookNow')}</button>
-       <button class="btn light" onclick="openWA('${lang==='ru'?'Здравствуйте! Хочу записаться в Коктем‑3.':'Сәлеметсіз бе! Коктем‑3 орталығына жазылғым келеді.'}')">${tr('whatsapp')}</button>
+  <div class="hero-main">
+    <span class="kicker">${txt('heroKicker')}</span>
+    <h1>${heroTitle}</h1>
+    <p>${heroText}</p>
+    <div class="hero-actions">
+      <button class="btn primary" onclick="startBooking()">${txt('primaryCTA')}</button>
+      <button class="btn secondary" onclick="openWhatsApp()">${txt('secondaryCTA')}</button>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="side-card">
+      <h3>${txt('sideTitle')}</h3>
+      <p>${txt('sideText')}</p>
+      <div class="mini-grid">
+        <div class="mini-item"><b>${txt('feat1')}</b><span>${txt('feat1s')}</span></div>
+        <div class="mini-item"><b>${txt('feat2')}</b><span>${txt('feat2s')}</span></div>
+        <div class="mini-item"><b>${txt('feat3')}</b><span>${txt('feat3s')}</span></div>
+        <div class="mini-item"><b>${txt('feat4')}</b><span>${txt('feat4s')}</span></div>
+      </div>
+    </div>
+    <div class="side-card">
+      <h3>${txt('quickTitle')}</h3>
+      <p>${txt('quickText')}</p>
+    </div>
+  </div>
+ </div>
+
+ <div class="section">
+   <div class="section-head"><h2>${txt('services')}</h2><p>${txt('servicesText')}</p></div>
+   <div class="grid-3">
+      ${b.services.map(s=>`<div class="card service-card"><div class="icon">${s.icon}</div><b>${serviceName(s)}</b><small>${serviceSub(s)}</small><div class="actions"><button class="btn outline small" onclick="selectServiceAndBook('${s.id}')">${txt('primaryCTA')}</button></div></div>`).join('')}
+   </div>
+ </div>
+ <div class="section">
+   <div class="section-head"><h2>${txt('doctors')}</h2><p>${txt('doctorsText')}</p></div>
+   <div class="grid-3">
+      ${b.doctors.map(d=>`<div class="card doctor-card"><div class="doctor-photo"><img src="${d.photo}" alt="${d.name}" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#e7eef5,#f8fbff)'"></div><div class="doctor-body"><b>${d.name}</b><small>${docRole(d)}</small><button class="btn outline small" onclick="selectDoctorAndBook('${d.id}')">${txt('primaryCTA')}</button></div></div>`).join('')}
+   </div>
+ </div>
+ <div class="section">
+   <div class="section-head"><h2>${txt('equip')}</h2><p>${txt('equipText')}</p></div>
+   <div class="grid-3">
+      ${b.equipment.map(e=>`<div class="card equip-card"><div class="equip-photo"><img src="${e.img}" alt="${state.lang==='ru'?e.titleRu:e.titleKk}" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#dceaf5,#eef6fb)'"></div><div class="equip-body"><b>${state.lang==='ru'?e.titleRu:e.titleKk}</b><small>${state.lang==='ru'?e.descRu:e.descKk}</small></div></div>`).join('')}
+   </div>
+ </div>
+ <div class="section">
+   <div class="section-head"><h2>${txt('news')}</h2><p>${txt('newsText')}</p></div>
+   <div class="grid-3">
+      ${b.news.map(n=>`<div class="card news-card"><div class="news-photo"><img src="${n.img}" alt="${state.lang==='ru'?n.titleRu:n.titleKk}" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#dceaf5,#eef6fb)'"></div><div class="news-body"><span class="tag">${state.lang==='ru'?n.catRu:n.catKk}</span><b>${state.lang==='ru'?n.titleRu:n.titleKk}</b><p>${state.lang==='ru'?n.textRu:n.textKk}</p></div></div>`).join('')}
+   </div>
+ </div>
+ <div class="section">
+   <div class="section-head"><h2>${txt('contacts')}</h2><p>${txt('contactsText')}</p></div>
+   <div class="info-band">
+     <div class="card info-card">
+        <h3>${txt('contact1')}</h3>
+        <p>${b.address}</p>
+        <h3>${txt('contact2')}</h3>
+        <p>${b.phones.join('<br>')}</p>
+        <h3>${txt('contact3')}</h3>
+        <p>${b.hours}</p>
+     </div>
+     <div class="card info-card">
+        <h3>${txt('contact4')}</h3>
+        <ul>
+          <li>${txt('advantage1')}</li>
+          <li>${txt('advantage2')}</li>
+          <li>${txt('advantage3')}</li>
+          <li>${txt('advantage4')}</li>
+        </ul>
+        <div class="actions"><button class="btn outline small" onclick="startBooking()">${txt('primaryCTA')}</button><button class="btn outline small" onclick="openWhatsApp()">WhatsApp</button></div>
      </div>
    </div>
-   <div class="hero-panel">
-     <div><div class="mini">${branch==='dental'?tr('dental'):tr('med')}</div><h3>${branch==='dental'?'Коктем‑3 Dental':'Коктем‑3 Medical'}</h3><p>${lang==='ru'?'Частная медицинская помощь с удобной цифровой записью.':'Ыңғайлы цифрлық жазылуы бар жеке медициналық көмек.'}</p></div>
-     <div class="hero-contact"><div>📍 ${b.address}</div><div>☎ ${b.mobile}</div></div>
-   </div>
- </div>
-
- <div class="section-head"><div><h2>${tr('quick')}</h2></div></div>
- <div class="quick-grid">
-   <button class="quick-card" onclick="location.href='tel:${b.mobile.replace(/\s/g,'')}'"><div class="icon">☎</div><b>${tr('call')}</b><small>${b.mobile}</small></button>
-   <button class="quick-card" onclick="openWA('${lang==='ru'?'Здравствуйте! Хочу записаться в Коктем‑3.':'Сәлеметсіз бе! Коктем‑3 орталығына жазылғым келеді.'}')"><div class="icon">✉</div><b>WhatsApp</b><small>${tr('whatsapp')}</small></button>
-   <button class="quick-card"><div class="icon">⌖</div><b>${tr('route')}</b><small>${b.address}</small></button>
- </div>
-
- <div class="section-head"><div><h2>${tr('services')}</h2><p>${tr('servicesSub')}</p></div></div>
- <div class="service-grid">${b.services.map(s=>`<button class="service-card" onclick="startBooking('${s.id}')"><div class="icon">${s.ico}</div><b>${sName(s)}</b><small>${s['sub'+lang]||s.subru}</small></button>`).join('')}</div>
-
- <div class="section-head"><div><h2>${tr('specialists')}</h2><p>${tr('specialistsSub')}</p></div></div>
- <div class="doctor-grid">${b.doctors.filter(d=>d.id!=='reg').map(doctorCard).join('')}</div>
-
- <div class="section-head"><div><h2>${tr('contacts')}</h2></div></div>
- <div class="info-card"><div class="label">${branch==='dental'?tr('dental'):tr('med')}</div><h3>${branch==='dental'?'Коктем‑3 Стоматология':'Коктем‑3 Медицинский центр'}</h3><div class="info">📍 ${b.address}<br>☎ ${b.phone}<br>📱 ${b.mobile}</div></div>`;
+ </div>`;
 }
-function startBooking(service=null,doctor=null,edit=null){flow={step:1,service,doctor,date:null,time:null,edit};showTab('booking')}
-function nav(){return `<div class="navrow">${flow.step>1?`<button class="btn light" onclick="flow.step--;renderBooking()">${tr('back')}</button>`:''}<button class="btn primary" onclick="nextStep()">${tr('next')}</button></div>`}
-function renderBooking(){
- let h=`<div class="booking-wrap"><div class="steps">${[1,2,3,4].map(i=>`<div class="stepbar ${i<=Math.min(flow.step,4)?'on':''}"></div>`).join('')}</div>`;
- if(flow.step===1)h+=`<div class="title">${tr('selectService')}</div><div class="sub">${tr('servicesSub')}</div><div class="pick-grid">${B().services.map(s=>`<button class="pick-card ${flow.service===s.id?'sel':''}" onclick="flow.service='${s.id}';if(flow.doctor&&!serviceById('${s.id}').docs.includes(flow.doctor))flow.doctor=null;renderBooking()"><div class="icon">${s.ico}</div><b>${sName(s)}</b><small>${s['sub'+lang]||s.subru}</small></button>`).join('')}</div>${nav()}`;
- if(flow.step===2){const docs=B().doctors.filter(d=>(serviceById(flow.service)?.docs||[]).includes(d.id));h+=`<div class="title">${tr('selectDoctor')}</div>${docs.map(d=>{const i=d.name.split(' ').slice(0,2).map(x=>x[0]).join('');return `<button class="doctor-line ${flow.doctor===d.id?'sel':''}" onclick="flow.doctor='${d.id}';renderBooking()"><div class="thumb">${d.photo?`<img src="${d.photo}" alt="${esc(d.name)}" onerror="this.remove()">`:i}</div><div><b>${esc(d.name)}</b><small>${esc(dSpec(d))}</small></div></button>`}).join('')}${nav()}`;}
- if(flow.step===3){const ds=nextDates();h+=`<div class="title">${tr('selectDate')}</div><div class="sub">${tr('realSlots')}</div><div class="dates">${ds.map(d=>{const iso=isoDate(d);return `<button class="date ${flow.date===iso?'sel':''}" onclick="flow.date='${iso}';flow.time=null;renderBooking()"><span>${d.toLocaleDateString(lang==='kk'?'kk-KZ':'ru-RU',{weekday:'short'})}</span><strong>${d.getDate()}</strong><span>${d.toLocaleDateString(lang==='kk'?'kk-KZ':'ru-RU',{month:'short'})}</span></button>`}).join('')}</div>${flow.date?renderSlots():''}${nav()}`;}
- if(flow.step===4)h+=`<div class="title">${tr('patient')}</div><div class="summary"><div class="sumrow"><span>${tr('branchLabel')}</span><b>${branch==='dental'?tr('dental'):tr('med')}</b></div><div class="sumrow"><span>${tr('service')}</span><b>${sName(serviceById(flow.service))}</b></div><div class="sumrow"><span>${tr('doctor')}</span><b>${esc(doctorById(flow.doctor)?.name||'')}</b></div><div class="sumrow"><span>${tr('date')}</span><b>${dateLabel(flow.date)}</b></div><div class="sumrow"><span>${tr('time')}</span><b>${flow.time}</b></div></div><label class="label2">${tr('name')}</label><input id="bn" class="input"><label class="label2">${tr('phone')}</label><input id="bp" class="input" inputmode="tel"><label class="label2">${tr('comment')}</label><textarea id="bc" class="textarea" rows="3"></textarea><div class="navrow"><button class="btn light" onclick="flow.step--;renderBooking()">${tr('back')}</button><button class="btn primary" onclick="saveBookingFlow()">${tr('confirm')}</button></div>`;
- if(flow.step===5)h+=`<div style="text-align:center;padding:48px 10px"><div style="font-size:62px;color:var(--accent)">✓</div><div class="title">${tr('created')}</div><div class="sub">${tr('createdText')}</div><button class="btn primary" onclick="showTab('my')">${tr('my')}</button></div>`;
- h+='</div>';qs('#booking').innerHTML=h;
+function selectServiceAndBook(id){state.selectedService=id; state.selectedDoctor=null; state.selectedDate=null; state.selectedSlot=null; startBooking(); state.bookingStep=1; renderBooking()}
+function selectDoctorAndBook(id){state.selectedDoctor=id; state.selectedDate=null; state.selectedSlot=null; startBooking(); state.bookingStep=2; renderBooking()}
+function getSelectedService(){return branchData().services.find(s=>s.id===state.selectedService)}
+function getSelectedDoctor(){return branchData().doctors.find(d=>d.id===state.selectedDoctor)}
+function renderBooking(){const b=branchData(); const el=$('page-booking'); const selectedService=getSelectedService(); const selectedDoctor=getSelectedDoctor();
+ const steps=`<div class="steps"><div class="step ${state.bookingStep>=0?'active':''}"></div><div class="step ${state.bookingStep>=1?'active':''}"></div><div class="step ${state.bookingStep>=2?'active':''}"></div><div class="step ${state.bookingStep>=3?'active':''}"></div></div>`;
+ let content='';
+ if(state.bookingStep===0){content=`<div class="select-grid">${b.services.map(s=>`<div class="select-card ${state.selectedService===s.id?'selected':''}" onclick="state.selectedService='${s.id}';state.bookingStep=1;renderBooking()"><b>${serviceName(s)}</b><small>${serviceSub(s)}</small></div>`).join('')}</div>`;}
+ if(state.bookingStep===1){content=`${selectedService?`<div class="summary"><div class="row"><span>${txt('service')}</span><b>${serviceName(selectedService)}</b></div></div>`:''}<div>${b.doctors.map(d=>`<div class="doctor-line ${state.selectedDoctor===d.id?'selected':''}" onclick="state.selectedDoctor='${d.id}';state.bookingStep=2;renderBooking()"><div class="thumb"><img src="${d.photo}" alt="${d.name}"></div><div><b>${d.name}</b><small>${docRole(d)}</small></div></div>`).join('')}</div>`;}
+ if(state.bookingStep===2){content=`${selectedService?`<div class="summary"><div class="row"><span>${txt('service')}</span><b>${serviceName(selectedService)}</b></div>${selectedDoctor?`<div class="row"><span>${txt('doctor')}</span><b>${selectedDoctor.name}</b></div>`:''}</div>`:''}<div class="date-row">${dateOptions.map((d,i)=>`<div class="date-chip ${state.selectedDate===i?'selected':''}" onclick="state.selectedDate=${i};renderBooking()"><span>${d.toLocaleDateString(state.lang==='ru'?'ru-RU':'kk-KZ',{weekday:'short'})}</span><strong>${d.getDate()}</strong><span>${d.toLocaleDateString(state.lang==='ru'?'ru-RU':'kk-KZ',{month:'short'})}</span></div>`).join('')}</div>${state.selectedDate!==null?`<div style="height:10px"></div><div class="slot-grid">${mergedSlots().map((s,idx)=>`<div class="slot ${state.selectedSlot===s?'selected':''} ${idx===2?'disabled':''}" onclick="${idx===2?'':`state.selectedSlot='${s}';state.bookingStep=3;renderBooking()`}">${s}</div>`).join('')}</div>`:''}`;}
+ if(state.bookingStep===3){content=`<div class="summary">${selectedService?`<div class="row"><span>${txt('service')}</span><b>${serviceName(selectedService)}</b></div>`:''}${selectedDoctor?`<div class="row"><span>${txt('doctor')}</span><b>${selectedDoctor.name}</b></div>`:''}${state.selectedDate!==null?`<div class="row"><span>${txt('date')}</span><b>${formatDate(dateOptions[state.selectedDate])}</b></div>`:''}${state.selectedSlot?`<div class="row"><span>${txt('time')}</span><b>${state.selectedSlot}</b></div>`:''}</div><label class="label">${txt('name')}</label><input id="patientName" class="input" placeholder="${txt('name')}"><label class="label">${txt('phone')}</label><input id="patientPhone" class="input" placeholder="+7 ..."><label class="label">${txt('comment')}</label><textarea id="patientComment" class="textarea" placeholder="${txt('comment')}"></textarea>`;}
+ el.innerHTML=`<div class="booking-wrap"><h1 class="title">${txt('bookTitle')}</h1><div class="sub">${txt('bookSub')}</div>${steps}<div class="card" style="padding:18px">${content}<div class="navrow">${state.bookingStep>0?`<button class="btn outline" onclick="state.bookingStep--; renderBooking()">${txt('back')}</button>`:''}<div class="spacer"></div>${state.bookingStep===3?`<button class="btn primary" onclick="saveBooking()">${txt('confirm')}</button>`:''}</div></div></div>`;
 }
-function nextStep(){if(flow.step===1&&!flow.service)return alert(tr('chooseService'));if(flow.step===2&&!flow.doctor)return alert(tr('chooseDoctor'));if(flow.step===3&&(!flow.date||!flow.time))return alert(tr('chooseTime'));flow.step++;renderBooking()}
-function nextDates(){let a=[],d=new Date();for(let i=1;i<=10;i++){let x=new Date(d);x.setDate(d.getDate()+i);if(branch==='med'&&x.getDay()===0)continue;a.push(x)}return a}
-function isoDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
-function dateLabel(iso){return new Date(iso+'T12:00:00').toLocaleDateString(lang==='kk'?'kk-KZ':'ru-RU',{weekday:'short',day:'numeric',month:'long'})}
-function currentSlots(){const s=getSlots(),key=sk(branch,flow.doctor,flow.date);return Array.isArray(s[key])?s[key]:['09:00','10:00','11:30','14:00','15:30','17:00']}
-function renderSlots(){const av=currentSlots();return `<div class="section-head" style="margin-top:22px"><div><h2 style="font-size:25px">${tr('time')}</h2></div></div><div class="slots">${TIMES.map(t=>`<button class="slot ${flow.time===t?'sel':''} ${av.includes(t)?'':'disabled'}" ${av.includes(t)?`onclick="flow.time='${t}';renderBooking()"`:'disabled'}>${t}</button>`).join('')}</div>`}
-function saveBookingFlow(){
- const n=qs('#bn').value.trim(),p=qs('#bp').value.trim(),c=qs('#bc').value.trim();if(n.length<2||p.length<7)return alert(lang==='ru'?'Укажите имя и телефон':'Аты-жөні мен телефонды енгізіңіз');
- let l=getBookings();
- if(flow.edit){const x=l.find(i=>i.id===flow.edit);if(x){x.branch=branch;x.serviceId=flow.service;x.service=sName(serviceById(flow.service));x.doctorId=flow.doctor;x.doctor=doctorById(flow.doctor).name;x.date=flow.date;x.dateLabel=dateLabel(flow.date);x.time=flow.time;x.status='Новая';x.comment=c;}}
- else l.unshift({id:Date.now(),branch,serviceId:flow.service,service:sName(serviceById(flow.service)),doctorId:flow.doctor,doctor:doctorById(flow.doctor).name,date:flow.date,dateLabel:dateLabel(flow.date),time:flow.time,name:n,phone:p,comment:c,status:'Новая'});
- saveBookings(l);flow.step=5;renderBooking()
+function saveBooking(){
+ const name=$('patientName').value.trim(); const phone=$('patientPhone').value.trim(); if(!name||!phone){alert('Заполните имя и телефон'); return;}
+ const bookings=getBookings(); const service=getSelectedService(); const doctor=getSelectedDoctor();
+ bookings.unshift({id:Date.now(), branch:state.branch, service:service?serviceName(service):'', doctor:doctor?doctor.name:'', date:state.selectedDate!==null?formatDate(dateOptions[state.selectedDate]):'', time:state.selectedSlot||'', name, phone, comment:$('patientComment').value.trim(), status:'new'});
+ setBookings(bookings); alert(txt('bookingSaved')+'\n'+txt('bookingSavedText')); state.bookingStep=0; state.selectedService=null; state.selectedDoctor=null; state.selectedDate=null; state.selectedSlot=null; showPage('my');
 }
-function renderMy(){const l=getBookings();qs('#my').innerHTML=`<div class="booking-wrap"><div class="title">${tr('my')}</div><div class="sub">${tr('createdText')}</div>${l.length?l.map(cardBooking).join(''):`<div class="info-card"><div class="muted">${tr('noBookings')}</div></div>`}</div>`}
-function cardBooking(x){return `<div class="appointment-card"><span class="badge ${badgeClass(x.status)}">${statusLabel(x.status)}</span><div style="height:8px"></div><b>${esc(x.service)}</b><div class="muted">${esc(x.doctor)} · ${esc(x.dateLabel)} · ${esc(x.time)}</div><div class="muted" style="margin-top:6px">${esc(x.name)} · ${esc(x.phone)}</div>${x.status!=='Отменена'?`<div class="actions"><button class="btn soft small" onclick="reschedule(${x.id})">${tr('reschedule')}</button><button class="btn light small" onclick="repeatBooking(${x.id})">${tr('repeat')}</button><button class="btn danger small" onclick="cancelBooking(${x.id})">${tr('cancel')}</button></div>`:''}</div>`}
-function cancelBooking(id){if(!confirm(tr('cancel')+'?'))return;let l=getBookings(),x=l.find(i=>i.id===id);if(x)x.status='Отменена';saveBookings(l);renderMy()}
-function reschedule(id){const x=getBookings().find(i=>i.id===id);if(!x)return;branch=x.branch;renderShell();flow={step:3,service:x.serviceId,doctor:x.doctorId,date:null,time:null,edit:id};showTab('booking')}
-function repeatBooking(id){const x=getBookings().find(i=>i.id===id);if(!x)return;branch=x.branch;renderShell();startBooking(x.serviceId,x.doctorId,null)}
-function renderPrices(){const a=getPrices()[branch];qs('#prices').innerHTML=`<div class="booking-wrap"><div class="title">${tr('priceTitle')}</div><div class="sub">${tr('priceText')}</div>${a.map(x=>`<div class="price-card"><b>${esc(x[lang]||x.ru)}</b><div class="price">${x.price?esc(x.price+' ₸'):tr('clarify')}</div></div>`).join('')}</div>`}
-function renderAdmin(){
- if(localStorage.getItem('k3p_admin')!=='1'){qs('#admin').innerHTML=`<div class="booking-wrap"><div class="title">${tr('adminTitle')}</div><div class="sub">${tr('adminSub')}</div><div class="info-card"><label class="label2">${tr('pass')}</label><input id="ap" class="input" type="password"><div style="height:10px"></div><button class="btn primary" onclick="loginAdmin()">${tr('login')}</button><div class="note">${tr('demo')}</div></div></div>`;return}
- qs('#admin').innerHTML=`<div class="booking-wrap"><div class="title">${tr('adminTitle')}</div><div class="sub">${tr('adminSub')}</div><div class="admin-tabs"><button class="${adminMode==='requests'?'on':''}" onclick="adminMode='requests';renderAdmin()">${tr('requests')}</button><button class="${adminMode==='schedule'?'on':''}" onclick="adminMode='schedule';renderAdmin()">${tr('schedule')}</button><button class="${adminMode==='prices'?'on':''}" onclick="adminMode='prices';renderAdmin()">${tr('priceAdmin')}</button><button class="${adminMode==='reminders'?'on':''}" onclick="adminMode='reminders';renderAdmin()">${tr('reminders')}</button><button onclick="logoutAdmin()">×</button></div><div id="adminBody"></div></div>`;renderAdminBody()
+function renderMy(){const bookings=getBookings(); const el=$('page-my');
+ el.innerHTML=`<h1 class="title">${txt('my')}</h1><div class="sub">${txt('bookingSavedText')}</div>${bookings.length?bookings.map(b=>`<div class="appt-card"><span class="badge ${b.status==='confirmed'?'ok':b.status==='cancelled'?'cancel':''}">${b.status}</span><div class="row"><span>${txt('branch')}</span><b>${b.branch==='dental'?txt('dental'):txt('med')}</b></div><div class="row"><span>${txt('service')}</span><b>${b.service}</b></div><div class="row"><span>${txt('doctor')}</span><b>${b.doctor}</b></div><div class="row"><span>${txt('date')}</span><b>${b.date}</b></div><div class="row"><span>${txt('time')}</span><b>${b.time}</b></div><div class="muted">${b.name} · ${b.phone}${b.comment?` · ${b.comment}`:''}</div><div class="actions"><button class="btn outline small" onclick="repeatBooking('${b.branch}','${b.service}')">${txt('repeat')}</button><button class="btn outline small" onclick="cancelBooking(${b.id})">${txt('cancel')}</button></div></div>`).join(''):`<div class="card info-card"><p>${txt('noBookings')}</p></div>`}`;
 }
-function loginAdmin(){if(qs('#ap').value==='koktem3'){localStorage.setItem('k3p_admin','1');renderAdmin()}else alert('Wrong password')}
-function logoutAdmin(){localStorage.removeItem('k3p_admin');renderAdmin()}
-function renderAdminBody(){
- if(adminMode==='requests'){const l=getBookings();qs('#adminBody').innerHTML=l.length?l.map(x=>`<div class="admin-card"><div style="display:flex;justify-content:space-between;gap:10px"><div><b>${esc(x.name)}</b><div class="muted">${esc(x.phone)} · ${esc(x.service)}</div></div><button class="btn danger small" onclick="deleteReq(${x.id})">${tr('delete')}</button></div><div class="muted" style="margin-top:8px">${esc(x.doctor)} · ${esc(x.dateLabel)} · ${esc(x.time)}</div><label class="label2">${tr('status')}</label><select class="select" onchange="setStatus(${x.id},this.value)">${['Новая','Подтверждена','Завершена','Отменена'].map(s=>`<option value="${s}" ${x.status===s?'selected':''}>${statusLabel(s)}</option>`).join('')}</select></div>`).join(''):`<div class="info-card"><div class="muted">${tr('noBookings')}</div></div>`}
- if(adminMode==='schedule'){const ds=nextDates();qs('#adminBody').innerHTML=`<div class="admin-card"><label class="label2">${tr('chooseAdminDoctor')}</label><select id="adoc" class="select" onchange="renderSlotEditor()">${B().doctors.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')}</select><label class="label2">${tr('chooseAdminDate')}</label><select id="adate" class="select" onchange="renderSlotEditor()">${ds.map(d=>{const iso=isoDate(d);return `<option value="${iso}">${dateLabel(iso)}</option>`}).join('')}</select><div id="slotEditor"></div></div>`;renderSlotEditor()}
- if(adminMode==='prices'){const a=getPrices()[branch];qs('#adminBody').innerHTML=a.map(x=>`<div class="price-card"><b>${esc(x[lang]||x.ru)}</b><input class="input pe" data-id="${x.id}" value="${esc(x.price)}" inputmode="numeric" style="margin-top:8px"></div>`).join('')+`<button class="btn primary" onclick="saveAdminPrices()">${tr('savePrices')}</button>`}
- if(adminMode==='reminders'){const l=getBookings().filter(x=>x.status!=='Отменена');qs('#adminBody').innerHTML=`<div class="note">${tr('reminderText')}</div><div style="height:10px"></div>${l.map(x=>`<div class="admin-card"><b>${esc(x.name)}</b><div class="muted">${esc(x.dateLabel)} · ${esc(x.time)} · ${esc(x.doctor)}</div><div style="height:8px"></div><button class="btn soft small" onclick="sendReminder(${x.id})">${tr('sendWA')}</button></div>`).join('')}`}
+function repeatBooking(branch,service){state.branch=branch; const b=branchData(); const found=b.services.find(s=>service===s.ru||service===s.kk); state.selectedService=found?found.id:null; savePrefs(); startBooking(); if(found) state.bookingStep=1; renderBooking()}
+function cancelBooking(id){const arr=getBookings().map(x=>x.id===id?{...x,status:'cancelled'}:x); setBookings(arr); renderMy(); if(state.adminLogged) renderAdmin();}
+function renderPrices(){const prices=mergedPrices(); $('page-prices').innerHTML=`<h1 class="title">${txt('pricesTitle')}</h1><div class="sub">${txt('pricesSub')}</div>${prices.map((p,i)=>`<div class="price-card"><div class="price-row"><div><b>${state.lang==='ru'?p.nameRu:p.nameKk}</b></div><div><b>${p.price}</b></div></div><div class="actions"><button class="btn outline small">${txt('clarify')}</button></div></div>`).join('')}`;}
+function adminLogin(){const v=$('adminPass').value.trim(); if(v==='koktem3'){state.adminLogged=true; renderAdmin()} else alert('Неверный пароль');}
+function setAdminTab(tab){state.adminTab=tab; renderAdmin()}
+function saveAdminPrices(){const blocks=[...document.querySelectorAll('[data-price-row]')].map((row,idx)=>({nameRu:row.querySelector('[data-ru]').value,nameKk:row.querySelector('[data-kk]').value,price:row.querySelector('[data-price]').value})); const admin=getAdmin(); admin[state.branch+'_prices']=blocks; setAdmin(admin); alert(txt('saved')); renderPrices();}
+function saveAdminSlots(){const slots=$('slotInput').value.split(',').map(s=>s.trim()).filter(Boolean); const admin=getAdmin(); admin[state.branch+'_slots']=slots; setAdmin(admin); alert(txt('saved'));}
+function renderAdmin(){const el=$('page-admin'); if(!state.adminLogged){el.innerHTML=`<div class="login"><h1 class="title">${txt('adminTitle')}</h1><div class="sub">${txt('adminSub')}</div><div class="card info-card"><label class="label">${txt('pass')}</label><input id="adminPass" class="input" type="password"><div class="note" style="margin-top:12px">${txt('demoPass')}</div><div class="actions" style="margin-top:14px"><button class="btn primary" onclick="adminLogin()">${txt('login')}</button></div></div></div>`; return;}
+ const bookings=getBookings(); const prices=mergedPrices(); const tabs=`<div class="admin-tabs"><button class="${state.adminTab==='requests'?'active':''}" onclick="setAdminTab('requests')">${txt('requests')}</button><button class="${state.adminTab==='schedule'?'active':''}" onclick="setAdminTab('schedule')">${txt('schedule')}</button><button class="${state.adminTab==='prices'?'active':''}" onclick="setAdminTab('prices')">${txt('priceAdmin')}</button><button class="${state.adminTab==='reminders'?'active':''}" onclick="setAdminTab('reminders')">${txt('reminders')}</button></div>`;
+ let body='';
+ if(state.adminTab==='requests') body=bookings.length?bookings.map(b=>`<div class="admin-card"><div class="row"><span>${txt('branch')}</span><b>${b.branch==='dental'?txt('dental'):txt('med')}</b></div><div class="row"><span>${txt('service')}</span><b>${b.service}</b></div><div class="row"><span>${txt('doctor')}</span><b>${b.doctor}</b></div><div class="row"><span>${txt('date')}</span><b>${b.date} ${b.time}</b></div><div class="muted">${b.name} · ${b.phone}</div><div class="actions"><button class="btn outline small" onclick="changeStatus(${b.id},'confirmed')">confirmed</button><button class="btn outline small" onclick="changeStatus(${b.id},'completed')">completed</button><button class="btn outline small" onclick="changeStatus(${b.id},'cancelled')">cancelled</button></div></div>`).join(''):`<div class="card info-card"><p>${txt('noBookings')}</p></div>`;
+ if(state.adminTab==='schedule') body=`<div class="admin-card"><label class="label">${txt('slots')}</label><textarea id="slotInput" class="textarea">${mergedSlots().join(', ')}</textarea><div class="actions"><button class="btn primary" onclick="saveAdminSlots()">${txt('save')}</button></div></div>`;
+ if(state.adminTab==='prices') body=`<div class="admin-card">${prices.map((p,i)=>`<div data-price-row style="padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)"><label class="label">RU</label><input data-ru class="input" value="${p.nameRu}"><label class="label">KZ</label><input data-kk class="input" value="${p.nameKk}"><label class="label">₸</label><input data-price class="input" value="${p.price}"></div>`).join('')}<div class="actions"><button class="btn primary" onclick="saveAdminPrices()">${txt('save')}</button></div></div>`;
+ if(state.adminTab==='reminders') body=`<div class="note">${txt('waHint')}</div><div style="height:12px"></div>${bookings.map(b=>`<div class="admin-card"><b>${b.name}</b><div class="muted">${b.date} · ${b.time} · ${b.phone}</div><div class="actions"><a class="btn outline small" target="_blank" href="https://wa.me/${b.phone.replace(/\D/g,'')}?text=${encodeURIComponent('Здравствуйте! Напоминаем о записи в Коктем-3 на '+b.date+' в '+b.time)}">WhatsApp</a></div></div>`).join('')||`<div class="card info-card"><p>${txt('noBookings')}</p></div>`}`;
+ el.innerHTML=`<h1 class="title">${txt('adminTitle')}</h1><div class="sub">${txt('adminSub')}</div>${tabs}${body}`;
 }
-function deleteReq(id){if(!confirm(tr('delete')+'?'))return;saveBookings(getBookings().filter(x=>x.id!==id));renderAdminBody()}
-function setStatus(id,v){let l=getBookings(),x=l.find(i=>i.id===id);if(x)x.status=v;saveBookings(l)}
-function renderSlotEditor(){const d=qs('#adoc')?.value,dt=qs('#adate')?.value;if(!d||!dt)return;const s=getSlots(),key=sk(branch,d,dt),active=Array.isArray(s[key])?s[key]:['09:00','10:00','11:30','14:00','15:30','17:00'];qs('#slotEditor').innerHTML=`<div class="section-head" style="margin-top:20px"><div><h2 style="font-size:25px">${tr('openSlots')}</h2></div></div><div class="slots">${TIMES.map(t=>`<button class="slot ${active.includes(t)?'sel':''}" data-time="${t}" onclick="this.classList.toggle('sel')">${t}</button>`).join('')}</div><div style="height:10px"></div><button class="btn primary" onclick="saveAdminSlots('${d}','${dt}')">${tr('saveSlots')}</button>`}
-function saveAdminSlots(d,dt){const active=[...document.querySelectorAll('#slotEditor .slot.sel')].map(x=>x.dataset.time),s=getSlots();s[sk(branch,d,dt)]=active;saveSlots(s);alert(tr('saved'))}
-function saveAdminPrices(){const all=getPrices(),a=all[branch];document.querySelectorAll('.pe').forEach(i=>{const x=a.find(p=>p.id===i.dataset.id);if(x)x.price=i.value.replace(/[^\d]/g,'')});savePrices(all);alert(tr('pricesSaved'))}
-function sendReminder(id){const x=getBookings().find(i=>i.id===id);if(!x)return;const msg=lang==='ru'?`Здравствуйте, ${x.name}! Напоминаем о записи в «Коктем‑3»: ${x.dateLabel}, ${x.time}. Врач: ${x.doctor}.`:`Сәлеметсіз бе, ${x.name}! «Коктем‑3» орталығындағы жазылуыңызды еске саламыз: ${x.dateLabel}, ${x.time}. Дәрігер: ${x.doctor}.`;window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank')}
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
-renderShell();renderHome();
+function changeStatus(id,status){const arr=getBookings().map(x=>x.id===id?{...x,status}:x); setBookings(arr); renderAdmin();}
+function renderAll(){renderHeader(); renderHome(); renderBooking(); renderMy(); renderPrices(); renderAdmin(); showPage(state.page)}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}
+renderAll();
 </script>
 </body>
 </html>

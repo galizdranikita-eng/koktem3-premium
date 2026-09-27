@@ -1,25 +1,20 @@
 {
-  "name": "Коктем-3 Premium",
-  "short_name": "Коктем-3",
-  "description": "Премиальный двуязычный интерфейс частной клиники Коктем-3",
-  "lang": "ru",
+  "name": "Коктем-3 Premium IMED Style",
+  "short_name": "Koktem-3",
   "start_url": "./",
-  "scope": "./",
   "display": "standalone",
-  "background_color": "#F8F6F1",
-  "theme_color": "#F8F6F1",
+  "background_color": "#f5f8fb",
+  "theme_color": "#113b63",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
